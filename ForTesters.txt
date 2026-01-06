@@ -1,0 +1,144 @@
+TLDR:
+Spiders only function if spawned in by the incident
+Use dev mode to gain some control over the spiders behavior
+There are a set of conditions for a spider to "hunt" one of your pawns. If its not happening, it may be a feature, not a bug. You can find the condition list below.
+
+
+1. Spider Spawning
+
+How spiders enter the map
+	•	A spider is spawned via a custom incident
+	•	When the spider spawns, an invisible “home spot” is also created
+	•	The spider’s behavior is entirely anchored to this home spot
+  THIS MEANS INDIVIDUAL SPIDERS SPAWNED IN BY ANY MEANS OTHER THAN THE INCIDENT WILL NOT FUNCTION!!!!
+
+Spawn location rules
+	•	The spider + home spot will spawn:
+	•	20–70 tiles from a map edge
+	•	Not on water
+	•	Biased towards forested areas or cave entrances:
+	•	They are not a traditional raid or drop-in threat
+
+⸻
+
+2. Spider Territory & Movement
+	•	Each spider has a territory radius (about 20 tiles, can change slightly based on circumstances) centered on its home spot
+	•	The spider will:
+	•	Patrol within this area
+	•	Defend it aggressively
+	•	It will not roam the entire map
+
+⸻
+
+3. Hunting Behavior (Very Important)
+
+Spiders do not constantly hunt.
+
+When a spider will start a hunt
+
+A hunt can only begin if:
+	•	The spider is healthy enough
+	•	Its hunt cooldown (2 days by default) has expired
+	•	It is in Defend mode
+	•	A humanlike pawn is:
+	•	Within hunt range of the home spot (90 tiles by default)
+	•	Somewhat isolated (<3 allies within 15 tiles of it)
+	•	Not too close to the colony (30 tiles from any turret and 20 from any door)
+
+Hunt engagement & disengagement
+
+Once hunting:
+	•	The spider will chase the target
+	•	The hunt will end if:
+	•	A fixed hunt timer expires
+	•	The target escapes too far outside the spider’s territory
+	•	The target reaches colony defenses
+	•	The spider is badly injured
+
+If a hunt fails:
+	•	The next hunt cooldown is shorter, so repeated failures don’t permanently neuter it
+
+⸻
+
+4. Capture & Cocooning
+
+What happens when a pawn is caught
+	•	If the spider downs a pawn:
+	•	It will attempt to drag them back to its home (there is a delay first)
+	•	The pawn is placed into a cocoon building
+	•	The pawn is DESPAWNED and stored inside the cocoon
+
+A Spider will also attempt to cocoon any pawn which is:
+	•	Downed within 20 tiles of its home spot
+	•	Recently webbed
+	•	This means in can sometimes cocoon pawns even if the spider is not in hunt mode
+
+⸻
+
+5. Cocoon Stages & Visuals
+
+The cocoon has two visual stages:
+
+Stage 1 – Initial Cocooning
+	•	Cocooned hediff severity < 1.0
+	•	The pawn is restrained, and kept alive
+	•	No egging yet
+
+Stage 2 – Fully Cocooned / Egging
+	•	Happens when cocooned hediff reaches severity 1.0
+	•	At this moment:
+	•	Arachnophobia trait is added
+	•	Egging begins after a delay
+	•	An alert is fired (camera jumps to the cocoon)
+  •	Cocoon texture switches after a delay (should happen soon after the first egg is implanted)
+  •	The arachnophobe trait should be added
+  •	The Arachnophobe trait controls many thoughts/moods related to spiders and being cocooned; removing it will affect them
+  
+While cocooned:
+	•	Hunger is kept full
+	•	Bleeding is automatically tended
+
+Egging:
+	•	The eggs will be added to the cocooned pawn every 6 hours after the second stage begins 
+	•	They do not spawn the main spider, but spiderlings, a separate kind of enemy
+  Spiderlings:
+	•	Do not leave the nest
+	•	Cannot use web
+	•	Are very tiny, it may be hard to see them without the Camera+ mod
+
+
+
+⸻
+
+6. Arachnophobia Trait
+
+Effects include:
+	•	Negative thought when spiders are on the same map
+	•	Positive mood buff when spiders are killed
+	•	Trait is only given if cocooning reaches stage two
+
+⸻
+
+7. Releasing or Rescuing Pawns
+	•	Colonists can:
+	•	Destroy the cocoon
+	•	Rescue the pawn directly (select a pawn, then right click the cocoon)
+
+⸻
+
+8. Events, Raids, and Other Incidents
+
+Other events should happen even if an aracnoid is on the map:
+
+This is intentional:
+	•	A spider may coexist with a raid
+	•	Raiders may stumble into spider territory
+	•	Players can exploit this (on purpose)
+
+⸻
+
+9. Dev Mode Notes (for testers)
+
+In dev/god mode:
+	•	You can reset hunt cooldown to have it start another one as soon as conditions are met
+	•	You can force Defend mode
