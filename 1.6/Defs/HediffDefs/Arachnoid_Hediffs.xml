@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- WEBBED (with humanlike overlay graphics per severity stage) -->
+  <HediffDef>
+    <defName>Webbed</defName>
+    <label>webbed</label>
+    <hediffClass>HediffWithComps</hediffClass>
+    <description>Spider web is constricting this pawn's movements</description>
+
+    <!-- Behavior / tuning -->
+    <isBad>true</isBad>
+    <tendable>false</tendable>
+    <initialSeverity>0.0</initialSeverity>
+    <minSeverity>0.0</minSeverity>
+    <maxSeverity>1.0</maxSeverity>
+
+    <!-- Progressive stages: overlays + movement + manipulation penalties
+         NOTE: Overlay graphics render on HUMANLIKE targets. Animals won't show these. -->
+    <stages>
+
+      <!-- 0.00+ : light strands -->
+      <li>
+        <label>webbed</label>
+        <minSeverity>0.01</minSeverity>
+        <capMods>
+          <!-- ~80% movement -->
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.25</offset>
+          </li>
+          <!-- ~80% manipulation -->
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>-0.25</offset>
+          </li>
+        </capMods>
+      </li>
+
+      <!-- 0.40+ : noticeable wrapping -->
+      <li>
+        <label>entangled</label>
+        <minSeverity>0.49</minSeverity>
+        <capMods>
+          <!-- ~50% movement -->
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.5</offset>
+          </li>
+          <!-- ~50% manipulation -->
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>-0.5</offset>
+          </li>
+        </capMods>
+      </li>
+
+      <!-- 0.80+ : heavy wrapping -->
+      <li>
+        <label>engulfed</label>
+        <minSeverity>0.74</minSeverity>
+        <capMods>
+          <!-- ~20% movement -->
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.75</offset>
+          </li>
+          <!-- ~20% manipulation -->
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>-0.75</offset>
+          </li>
+        </capMods>
+      </li>
+
+      <!-- 1.00 : wrapped / immobilized -->
+      <li>
+        <label>wrapped</label>
+        <minSeverity>1.0</minSeverity>
+
+        <!-- Hard stop -->
+        <statFactors>
+          <MoveSpeed>0.0</MoveSpeed>
+        </statFactors>
+
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <setMax>0.00</setMax>
+          </li>
+          <li>
+            <capacity>Manipulation</capacity>
+            <setMax>0.00</setMax>
+          </li>
+        </capMods>
+      </li>
+
+    </stages>
+
+    <!-- Auto-expire after 7,500 ticks -->
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>7500</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+  </HediffDef>
+
+</Defs>

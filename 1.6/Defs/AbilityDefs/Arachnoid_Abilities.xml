@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <AbilityDef>
+    <defName>WebShot</defName>
+    <label>web shot</label>
+    <description>Launches a sticky web that builds up on the target, slowing them down with each hit until they're hopelessly entangled</description>
+    <iconPath>UI/Icons/Abilities/WebShot</iconPath>
+	  <cooldownTicksRange>120</cooldownTicksRange>
+    <aiCanUse>true</aiCanUse>
+    <displayOrder>300</displayOrder>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <range>15</range>
+      <minRange>3</minRange>
+      <warmupTime>0.25</warmupTime>
+      <soundCast>PiercingSpine_Launch</soundCast>
+      <targetParams>
+        <canTargetPawns>true</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetAnimals>false</canTargetAnimals>
+      </targetParams>
+    </verbProperties>
+    <!-- Single-target cadence + AI eligibility -->
+    <!-- The delivery mechanism: a simple projectile (no explosion) -->
+    <comps>
+      <li Class="CompProperties_AbilityLaunchProjectile">
+        <projectileDef>Arachnoid_WebBolt</projectileDef>
+      </li>
+    </comps>
+  </AbilityDef>
+
+
+    <!-- Vanilla bullet-style projectile (no explosion). -->
+  <ThingDef ParentName="BaseBullet">
+    <defName>Arachnoid_WebBolt</defName>
+    <label>web bolt</label>
+
+    <graphicData>
+      <!-- Optional sprite; omit if you’re fine with invisible projectile. -->
+      <texPath>Things/Projectile/Arachnoid_WebBolt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+
+    <projectile>
+      <!-- Uses our web “damage” which only applies the hediff -->
+      <damageDef>Arachnoid_Web</damageDef>
+      <!-- Keep this at 1 so each hit adds exactly 0.25 severity -->
+      <damageAmountBase>1</damageAmountBase>
+      <speed>50</speed>
+      <shadowSize>0.6</shadowSize>
+      <screenShakeFactor>0</screenShakeFactor>
+      <arcHeightFactor>0.4</arcHeightFactor>
+    </projectile>
+  </ThingDef>
+
+</Defs>
+

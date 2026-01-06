@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThinkTreeDef>
+    <defName>ThinkTree_ArachnoidSpiderling</defName>
+
+    <thinkRoot Class="ThinkNode_Priority">
+      <subNodes>
+
+        <!-- Always leash back home -->
+        <li Class="Arachnoids.ThinkNode_ConditionalOutsideHomeRadius">
+          <subNodes>
+            <li Class="Arachnoids.JobGiver_GotoArachnoidHome" />
+          </subNodes>
+        </li>
+
+        <!-- No hunts, no dragging, no WebShot. Just defend/fight. -->
+        <li Class="JobGiver_ReactToCloseMeleeThreat">
+          <maxDistance>1.9</maxDistance>
+        </li>
+
+        <li Class="JobGiver_AIFightEnemies">
+          <targetAcquireRadius>18</targetAcquireRadius>
+          <targetKeepRadius>24</targetKeepRadius>
+        </li>
+
+        <!-- Idle wander (will be bounded by leash) -->
+        <li Class="ThinkNode_Tagger">
+          <tagToGive>Idle</tagToGive>
+          <subNodes>
+            <li Class="JobGiver_WanderAnywhere">
+              <maxDanger>Some</maxDanger>
+            </li>
+          </subNodes>
+        </li>
+
+      </subNodes>
+    </thinkRoot>
+  </ThinkTreeDef>
+
+</Defs>

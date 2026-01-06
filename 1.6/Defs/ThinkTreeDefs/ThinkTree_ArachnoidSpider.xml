@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThinkTreeDef>
+    <defName>ThinkTree_ArachnoidSpider</defName>
+
+    <thinkRoot Class="ThinkNode_Priority">
+      <subNodes>
+
+        <!-- DRAG has absolute priority -->
+        <li Class="Arachnoids.ThinkNode_ConditionalArachnoidMode">
+          <mode>Drag</mode>
+          <subNodes>
+            <li Class="Arachnoids.JobGiver_ArachnoidDragVictimToLair" />
+          </subNodes>
+        </li>
+
+        <!-- HUNT: prefer WebShot, otherwise reposition to WebShot range -->
+        <li Class="Arachnoids.ThinkNode_ConditionalArachnoidMode">
+          <mode>Hunt</mode>
+          <subNodes>
+
+            <!-- Try to fire WebShot as soon as possible (guarded to avoid early-spawn NRE) -->
+            <li Class="Arachnoids.ThinkNode_ConditionalHasAbility">
+              <ability>WebShot</ability>
+              <subNodes>
+                <li Class="JobGiver_AIAbilityFight">
+                  <targetAcquireRadius>30</targetAcquireRadius>
+                  <targetKeepRadius>34</targetKeepRadius>
+                  <skipIfCantTargetNow>false</skipIfCantTargetNow>
+                  <ability>WebShot</ability>
+                  <allowTurrets>false</allowTurrets>
+                  <needLOSToAcquireNonPawnTargets>true</needLOSToAcquireNonPawnTargets>
+                </li>
+              </subNodes>
+            </li>
+
+            <!-- If we can't shoot yet, move to a better stand-off position -->
+            <li Class="Arachnoids.JobGiver_ArachnoidHuntApproachVictim" />
+
+          </subNodes>
+        </li>
+
+        <!-- DEFEND: if a pawn is freshly downed and webbed near the lair, kidnap it -->
+        <li Class="Arachnoids.ThinkNode_ConditionalArachnoidMode">
+          <mode>Defend</mode>
+          <subNodes>
+            <li Class="Arachnoids.JobGiver_ArachnoidDragVictimToLair" />
+          </subNodes>
+        </li>
+
+        <!-- DEFEND: leash home if outside radius -->
+        <li Class="Arachnoids.ThinkNode_ConditionalOutsideHomeRadius">
+          <subNodes>
+            <li Class="Arachnoids.JobGiver_GotoArachnoidHome" />
+          </subNodes>
+        </li>
+
+        <!-- DEFEND: attempt to start a hunt -->
+        <li Class="Arachnoids.JobGiver_ArachnoidStartHunt" />
+
+        <li Class="ThinkNode_Subtree">
+          <treeDef>LordDuty</treeDef>
+        </li>
+
+        <li Class="JobGiver_ReactToCloseMeleeThreat">
+          <maxDistance>2.9</maxDistance>
+        </li>
+
+        <li Class="JobGiver_FleeForDistance">
+          <enemyDistToFleeRange>2.9~6.1</enemyDistToFleeRange>
+          <fleeDistRange>10.5~13.5</fleeDistRange>
+        </li>
+
+        <!-- Non-hunt combat fallback (also guarded) -->
+        <li Class="Arachnoids.ThinkNode_ConditionalHasAbility">
+          <ability>WebShot</ability>
+          <subNodes>
+            <li Class="JobGiver_AIAbilityFight">
+              <targetAcquireRadius>22</targetAcquireRadius>
+              <targetKeepRadius>28</targetKeepRadius>
+              <skipIfCantTargetNow>false</skipIfCantTargetNow>
+              <ability>WebShot</ability>
+              <allowTurrets>false</allowTurrets>
+              <needLOSToAcquireNonPawnTargets>true</needLOSToAcquireNonPawnTargets>
+            </li>
+          </subNodes>
+        </li>
+
+        <li Class="JobGiver_AIFightEnemies">
+          <targetAcquireRadius>20</targetAcquireRadius>
+          <targetKeepRadius>26</targetKeepRadius>
+        </li>
+
+        <!-- Idle wander -->
+        <li Class="ThinkNode_Tagger">
+          <tagToGive>Idle</tagToGive>
+          <subNodes>
+            <li Class="JobGiver_WanderAnywhere">
+              <maxDanger>Some</maxDanger>
+            </li>
+          </subNodes>
+        </li>
+
+      </subNodes>
+    </thinkRoot>
+
+  </ThinkTreeDef>
+
+</Defs>

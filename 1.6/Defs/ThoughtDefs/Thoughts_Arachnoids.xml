@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Active while the pawn is cocooned (situational, severity-aware) -->
+  <ThoughtDef>
+    <defName>Arachnoid_CocoonedTerror</defName>
+    <thoughtClass>Thought_Situational</thoughtClass>
+    <workerClass>Arachnoids.ThoughtWorker_ArachnoidCocooned</workerClass>
+
+    <label>cocooned</label>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <!-- severity < 1.0 -->
+      <li>
+        <label>cocooned</label>
+        <baseMoodEffect>-20</baseMoodEffect>
+        <description>I’m wrapped up and helpless. Whatever did this hasn’t finished with me yet — I can feel that much.</description>
+      </li>
+
+      <!-- severity < 1.0 & arachnophobia-->
+
+      <li>
+        <label>cocooned again</label>
+        <baseMoodEffect>-28</baseMoodEffect>
+        <description>They wrapped me up again but I know what comes next. That’s the worst part.</description>
+      </li>
+
+
+      <!-- severity >= 1.0 -->
+      <li>
+        <label>violated</label>
+        <baseMoodEffect>-30</baseMoodEffect>
+        <description>I’ve been here a long time. Something forced its way down my throat… I can feel that my body is being used.</description>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+
+  <!-- Victim mood debuff after release -->
+  <ThoughtDef>
+    <defName>Arachnoid_CocoonTrauma</defName>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <label>cocoon trauma</label>
+    <durationDays>6</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>cocoon trauma</label>
+        <baseMoodEffect>-10</baseMoodEffect>
+        <description>I was dragged away and wrapped in webbing. As if spiders didn't scare me enough already.</description>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <!-- Victim gains a positive opinion of the rescuer -->
+  <ThoughtDef>
+    <defName>Arachnoid_RescuedFromCocoon</defName>
+    <thoughtClass>Thought_MemorySocial</thoughtClass>
+    <label>rescued me from a cocoon</label>
+    <durationDays>10</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>rescued me from a cocoon</label>
+        <baseOpinionOffset>20</baseOpinionOffset>
+        <description>They saved me from an Arachnoid.</description>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <!-- Egg present -->
+  <ThoughtDef>
+    <defName>Arachnoid_EggPresence</defName>
+    <thoughtClass>Thought_Situational</thoughtClass>
+    <workerClass>Arachnoids.ThoughtWorker_ArachnoidEggPresent</workerClass>
+    <label>implanted</label>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>implanted</label>
+        <baseMoodEffect>-10</baseMoodEffect>
+        <description>That tube forced something into my stomach!</description>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <!-- Arachnophobia: stage depends on whether spiders are on the same map -->
+  <ThoughtDef>
+    <defName>Arachnoid_Arachnophobia</defName>
+    <thoughtClass>Thought_Situational</thoughtClass>
+    <workerClass>Arachnoids.ThoughtWorker_ArachnophobeTrait</workerClass>
+    <label>arachnophobia</label>
+    <validWhileDespawned>false</validWhileDespawned>
+    <stages>
+      <!-- No spiders on map -->
+      <li>
+        <label>arachnophobia</label>
+        <baseMoodEffect>0</baseMoodEffect>
+        <description>I was violated and forced to incubate that thing's brood.</description>
+      </li>
+
+      <!-- Spiders present on map -->
+      <li>
+        <label>arachnophobia</label>
+        <baseMoodEffect>-5</baseMoodEffect>
+        <description>They’re here, I can feel it. My chest tightens just thinking about what they do to people.</description>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <!-- Arachnophobe bonus when a spider dies on the map -->
+  <ThoughtDef>
+    <defName>Arachnoid_ArachnophobiaRelief_SpiderKilled</defName>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <label>spider slain</label>
+    <durationDays>1</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>spider slain</label>
+        <baseMoodEffect>6</baseMoodEffect>
+        <description>One less spider. One less chance of ending up in the web again.</description>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

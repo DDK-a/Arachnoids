@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/HediffDef[defName="Webbed"]</xpath>
+    <value>
+      <renderNodeProperties>
+        <li>
+          <debugLabel>WebOverlay</debugLabel>
+          <!-- Use your custom node class -->
+          <nodeClass>Arachnoids.PawnRenderNode_WebOverlay</nodeClass>
+          <!-- Vanilla worker handles body render positioning -->
+          <workerClass>PawnRenderNodeWorker_Body</workerClass>
+          <!-- Layer and tag match RJW-Cocoon’s setup -->
+          <baseLayer>45</baseLayer>
+          <parentTagDef>Body</parentTagDef>
+        </li>
+      </renderNodeProperties>
+    </value>
+  </Operation>
+</Patch>

@@ -1,0 +1,54 @@
+<ModMetaData>
+  <name>Arachnoids</name>
+  <author>DDK</author>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <packageId>DDK.arachnoids</packageId>
+  <modDependencies>
+    <li>
+      <packageId>ludeon.rimworld.biotech</packageId>
+      <displayName>Biotech</displayName>
+    </li>
+    <li>
+      <packageId>ludeon.rimworld.anomaly</packageId>
+      <displayName>Anomaly</displayName>
+    </li>
+		<li>
+			<packageId>OskarPotocki.VanillaFactionsExpanded.Core</packageId>
+			<displayName>Vanilla Expanded Framework</displayName>
+			<steamWorkshopUrl>https://steamcommunity.com/workshop/filedetails/?id=2023507013</steamWorkshopUrl>
+			<downloadUrl>https://github.com/Vanilla-Expanded/VanillaExpandedFramework</downloadUrl>
+		</li>
+    <li>
+      <packageId>sarg.alphaanimals</packageId>
+      <displayName>Alpha Animals</displayName>
+      <downloadUrl>https://github.com/juanosarg/AlphaAnimals</downloadUrl>
+    </li>
+    <li>
+      <packageId>rim.job.world</packageId>
+      <displayName>RimJobWorld</displayName>
+      <downloadUrl>https://gitgud.io/Ed86/rjw</downloadUrl>
+    </li>
+    <li>
+      <packageId>Ed86.rjwinsects</packageId>
+      <displayName>RimJobWorld - Insects</displayName>
+      <downloadUrl>https://gitgud.io/Ed86/rjw</downloadUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>ludeon.rimworld.biotech</li>
+    <li>ludeon.rimworld.anomaly</li>
+    <li>Ed86.rjwinsects</li>
+    <li>rim.job.world</li>
+    <li>sarg.alphaanimals</li>
+    <li>OskarPotocki.VanillaFactionsExpanded.Core</li>
+  </loadAfter>
+  <incompatibleWith>
+    <li>CETeam.CombatExtended</li>
+  </incompatibleWith>
+  <description>
+Adds a hostile, territorial, Arachnoid enemy which immobilizes its prey with webs and drags them off.
+Textures were designed around Sized Apparel Zero's bodies. They may look weird if you are using a different mod.
+  </description>
+</ModMetaData>

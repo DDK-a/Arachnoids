@@ -1,0 +1,55 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <AssemblyName>Arachnoids</AssemblyName>
+    <RootNamespace>Arachnoids</RootNamespace>
+    <OutputPath>..\Assemblies\</OutputPath>
+    <LangVersion>latest</LangVersion>
+    <PlatformTarget>x64</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <EnableDefaultCompileItems>true</EnableDefaultCompileItems>
+    <Optimize>true</Optimize>
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- ✅ Core RimWorld Assembly (Mac merges Verse + RimWorld into Assembly-CSharp) -->
+    <Reference Include="Assembly-CSharp">
+      <HintPath>/Users/ddkbook/Library/Application Support/Steam/steamapps/common/RimWorld/RimWorldMac.app/Contents/Resources/Data/Managed/Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+
+    <!-- ✅ Harmony -->
+    <Reference Include="0Harmony">
+      <HintPath>/Users/ddkbook/Library/Application Support/Steam/steamapps/common/RimWorld/RimWorldMac.app/Mods/HarmonyMod/Current/Assemblies/0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+
+    <!-- ✅ RJW dependency -->
+    <Reference Include="RJW">
+      <HintPath>/Users/ddkbook/Library/Application Support/Steam/steamapps/common/RimWorld/RimWorldMac.app/Mods/rjw-master/1.6/Assemblies/RJW.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+
+    <!-- ✅ Unity base assemblies -->
+    <Reference Include="UnityEngine">
+      <HintPath>/Users/ddkbook/Library/Application Support/Steam/steamapps/common/RimWorld/RimWorldMac.app/Contents/Resources/Data/Managed/UnityEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>/Users/ddkbook/Library/Application Support/Steam/steamapps/common/RimWorld/RimWorldMac.app/Contents/Resources/Data/Managed/UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>/Users/ddkbook/Library/Application Support/Steam/steamapps/common/RimWorld/RimWorldMac.app/Contents/Resources/Data/Managed/UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>/Users/ddkbook/Library/Application Support/Steam/steamapps/common/RimWorld/RimWorldMac.app/Contents/Resources/Data/Managed/UnityEngine.TextRenderingModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>

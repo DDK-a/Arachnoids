@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <IncidentDef>
+    <defName>ArachnoidHomeSpider</defName>
+
+    <label>arachnoid stalker</label>
+    <category>ThreatBig</category>
+
+    <!-- REQUIRED: tells RimWorld this incident targets a player home map -->
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+
+    <!-- This is what actually runs -->
+    <workerClass>Arachnoids.IncidentWorker_ArachnoidHomeSpider</workerClass>
+
+    <!-- Letters -->
+    <letterLabel>Arachnoid presence detected</letterLabel>
+    <letterText>A powerful arachnoid has appeared and claimed territory nearby.</letterText>
+    <letterDef>ThreatBig</letterDef>
+
+    <!-- Keep it dev-testable but not naturally rolled yet -->
+    <baseChance>0</baseChance>
+    <pointsScaleable>false</pointsScaleable>
+  </IncidentDef>
+
+</Defs>

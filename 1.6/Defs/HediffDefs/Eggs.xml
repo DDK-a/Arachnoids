@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<rjw.HediffDef_InsectEgg ParentName="RJW_ImplantEgg">
+		<defName>RJW_ArachnoidEgg</defName>
+        <label>arachnoid egg</label>
+        <description>Parasitic eggs laid by an arachnoid predator.</description>
+		<parentDefs>
+			<li>Arachnoid_Spider</li>
+		</parentDefs>
+		<childrenDefs>
+			<li>Arachnoid_Spiderling</li>
+		</childrenDefs>
+		<UnFertEggDef>RJW_EggInsectUnfertilized</UnFertEggDef>
+		<FertEggDef>RJW_EggInsectFertilized</FertEggDef>
+		<selffertilized>true</selffertilized>
+	</rjw.HediffDef_InsectEgg>
+
+</Defs>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- =========================================================
+       Arachnoid Spider
+       Stable version with WebShot restored
+  ============================================================ -->
+  <ThingDef ParentName="AnimalThingBase">
+    <defName>Arachnoid_Spider</defName>
+    <label>arachnoid spider</label>
+    <description>A chitinous arachnoid that subdues prey using silk webs and drags them back alive. It also boasts regenerative capacities and high speed.</description>
+
+    <!-- ===========================
+         Stats
+    ============================ -->
+    <statBases>
+      <MoveSpeed>8</MoveSpeed>
+      <ComfyTemperatureMin>-10</ComfyTemperatureMin>
+      <ComfyTemperatureMax>50</ComfyTemperatureMax>
+      <MarketValue>750</MarketValue>
+      <LeatherAmount>0</LeatherAmount>
+      <ArmorRating_Blunt>0.10</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.50</ArmorRating_Sharp>
+      <FilthRate>1</FilthRate>
+      <Wildness>0.95</Wildness>
+    </statBases>
+
+    <!-- ===========================
+         Biological Properties
+    ============================ -->
+    <race>
+      <thinkTreeMain>ThinkTree_ArachnoidSpider</thinkTreeMain>
+      <thinkTreeConstant>AnimalConstant</thinkTreeConstant>
+      <body>ArachnoidBody</body>
+      <baseHungerRate>0.35</baseHungerRate>
+      <baseBodySize>1.2</baseBodySize>
+      <baseHealthScale>2.5</baseHealthScale>
+      <meatLabel>insect meat</meatLabel>
+      <lifeExpectancy>10</lifeExpectancy>
+      <trainability>Advanced</trainability>
+      <specialTrainables>
+        <li MayRequire="Ludeon.RimWorld.Odyssey">AttackTarget</li>
+      </specialTrainables>
+            <lifeStageAges>
+        <li>
+          <def>EusocialInsectLarva</def>
+          <minAge>0</minAge>
+        </li>
+        <li>
+          <def>EusocialInsectJuvenile</def>
+          <minAge>0.03</minAge>
+        </li>
+        <li>
+          <def>EusocialInsectAdult</def>
+          <minAge>0.2</minAge>
+          <soundWounded>Pawn_BigInsect_Pain</soundWounded>
+          <soundDeath>Pawn_BigInsect_Death</soundDeath>
+          <soundCall>Pawn_BigInsect_Call</soundCall>
+          <soundAngry>Pawn_BigInsect_Angry</soundAngry>
+        </li>
+      </lifeStageAges>
+      <!-- Sounds -->
+      <soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+    </race>
+
+    <!-- ===========================
+         Melee Attack Tools
+    ============================ -->
+    <tools>
+      <!-- Bite (main attack) -->
+      <li>
+        <label>fangs</label>
+        <capacities>
+          <li>Bite</li>
+        </capacities>
+        <power>7</power>
+        <cooldownTime>2.6</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+      </li>
+
+      <!-- Pedipalp bash -->
+      <li>
+        <label>pedipalp bash</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>4</power>
+        <cooldownTime>2.2</cooldownTime>
+      </li>
+
+      <!-- Leg strike -->
+      <li>
+        <label>leg strike</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>3</power>
+        <cooldownTime>1.8</cooldownTime>
+      </li>
+    </tools>
+
+    <!-- ===========================
+         Ability: WebShot
+         (grants silk-firing ranged attack)
+    ============================ -->
+    <comps>
+      <li Class="VEF.AnimalBehaviours.CompProperties_InitialAbility">
+        <initialAbility>WebShot</initialAbility>
+      </li>
+      <li Class="Arachnoids.CompProperties_ArachnoidHome">
+        <defaultRadius>20</defaultRadius>
+      </li>
+      <li Class="VEF.AnimalBehaviours.CompProperties_FixedGender">
+		    <gender>Female</gender>
+	    </li>
+      <li Class="VEF.AnimalBehaviours.CompProperties_Regeneration">
+				<rateInTicks>60</rateInTicks>
+			</li>
+    </comps>
+
+    <!-- ===========================
+         Graphics
+    ============================ -->
+    <graphicData>
+      <texPath>Things/Pawn/Arachnoids/Arachnoid_Spider</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>1.2</drawSize>
+      <shadowData>
+        <volume>(0.5, 0.35, 0.5)</volume>
+      </shadowData>
+    </graphicData>
+
+  </ThingDef>
+
+  <!-- ===========================
+       PawnKind Definition
+  ============================ -->
+  <PawnKindDef ParentName="InsectKindBase">
+    <defName>Arachnoid_Spider</defName>
+    <label>arachnoid spider</label>
+    <race>Arachnoid_Spider</race>
+    <combatPower>200</combatPower>
+    <ecoSystemWeight>0.25</ecoSystemWeight>
+    <canArriveManhunter>false</canArriveManhunter>
+
+    
+
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Arachnoids/Arachnoid_Spider</texPath>
+          <drawSize>1.2</drawSize>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Arachnoids/Arachnoid_Spider</texPath>
+          <drawSize>1.2</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Arachnoids/Arachnoid_Spider</texPath>
+          <drawSize>1.6</drawSize>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Arachnoids/Arachnoid_Spider</texPath>
+          <drawSize>1.6</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Arachnoids/Arachnoid_Spider</texPath>
+          <drawSize>2.5</drawSize>
+          <shadowData>
+            <volume>(0.5, 0.7, 0.43)</volume>
+            <offset>(0,0,-0.1)</offset>
+          </shadowData>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Arachnoids/Arachnoid_Spider</texPath>
+          <drawSize>2.5</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+</Defs>

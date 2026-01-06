@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Simple structure representing an Arachnoid nest.
+       This is enough for your incident to spawn and render it. -->
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>ArachnoidNest</defName>
+    <label>arachnoid nest</label>
+    <description>A woven home that serves as the center of an Arachnoid colony. It glistens with silk and faint movement beneath the surface.</description>
+
+    <!-- Use the same category as insect hives -->
+    <category>Building</category>
+    <thingClass>Building</thingClass>
+    <selectable>true</selectable>
+    <altitudeLayer>Building</altitudeLayer>
+    <useHitPoints>true</useHitPoints>
+    <pathCost>40</pathCost>
+    <fillPercent>0.40</fillPercent>
+    <statBases>
+      <MaxHitPoints>350</MaxHitPoints>
+      <Flammability>0.2</Flammability>
+      <WorkToBuild>1500</WorkToBuild>
+      <Beauty>-15</Beauty>
+    </statBases>
+
+    <!-- For factions to own it -->
+    <building>
+      <isNaturalRock>false</isNaturalRock>
+      <claimable>false</claimable>
+    </building>
+
+    <!-- Graphics -->
+    <graphicData>
+      <!-- You can replace this with your own texture (512x512 transparent PNG) -->
+      <texPath>Things/Building/ArachnoidNest/ArachnoidNest</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2.2, 2.2)</drawSize>
+    </graphicData>
+
+    <!-- Sounds when destroyed -->
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+
+    <!-- Same terrain-affinity as insect hives -->
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+
+    <!-- So the nest can burn and be destroyed -->
+    <damageMultipliers>
+      <li>
+        <damageDef>Flame</damageDef>
+        <multiplier>1.5</multiplier>
+      </li>
+    </damageMultipliers>
+
+
+
+  </ThingDef>
+
+</Defs>

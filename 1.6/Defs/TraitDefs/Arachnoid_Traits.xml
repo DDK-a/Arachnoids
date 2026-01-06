@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <TraitDef>
+    <defName>Arachnoid_Arachnophobe</defName>
+    <label>arachnophobe</label>
+    <description>This pawn developed a deep, lingering fear of arachnoids after being cocooned.</description>
+    <commonality>0</commonality>
+
+    <degreeDatas>
+      <li>
+        <degree>0</degree>
+        <label>arachnophobe</label>
+        <description>This pawn developed a deep, lingering fear of arachnoids after being cocooned.</description>
+      </li>
+    </degreeDatas>
+  </TraitDef>
+
+</Defs>

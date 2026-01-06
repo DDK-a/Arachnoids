@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <HediffDef>
+    <defName>Arachnoid_Cocooned</defName>
+    <label>cocooned</label>
+    <description>Wrapped tightly in arachnoid webbing.</description>
+
+    <hediffClass>HediffWithComps</hediffClass>
+    <tendable>false</tendable>
+    <isBad>true</isBad>
+    <scenarioCanAdd>false</scenarioCanAdd>
+
+    <!-- Stasis effects (still backed up by the building’s sustain) -->
+    <stages>
+      <li>
+        <hungerRateFactor>0</hungerRateFactor>
+        <!--<totalBleedFactor>0</totalBleedFactor> -->
+      </li>
+    </stages>
+
+    <comps>
+      <li Class="Arachnoids.HediffCompProperties_ArachnoidCocoonedProgress">
+        <!-- Stage 2 trigger -->
+        <daysToArachnophobe>0.25</daysToArachnophobe>
+
+        <!-- Egging begins at same time as arachnophobe -->
+        <daysToStartEgging>0.25</daysToStartEgging>
+
+        <!-- Egg cadence and cap -->
+        <eggIntervalDays>0.25</eggIntervalDays>
+        <maxEggs>6</maxEggs>
+
+        <!-- Your RJW egg hediff def -->
+        <eggHediffDef>RJW_ArachnoidEgg</eggHediffDef>
+
+        <!-- Arachnophobe trait def -->
+        <arachnophobeTraitDef>Arachnoid_Arachnophobe</arachnophobeTraitDef>
+      </li>
+    </comps>
+  </HediffDef>
+</Defs>

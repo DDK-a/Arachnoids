@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <JobDef>
+    <defName>Arachnoid_RescueFromCocoon</defName>
+    <label>rescue from cocoon</label>
+    <driverClass>Arachnoids.JobDriver_ArachnoidRescueFromCocoon</driverClass>
+    <reportString>rescuing from cocoon.</reportString>
+    <playerInterruptible>true</playerInterruptible>
+  </JobDef>
+
+</Defs>

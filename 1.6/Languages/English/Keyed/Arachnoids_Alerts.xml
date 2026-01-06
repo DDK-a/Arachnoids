@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <Arachnoids_CocoonedMessage>{0} has been cocooned by an arachnoid!</Arachnoids_CocoonedMessage>
+
+  <Arachnoids_EggingBeginsMessage>
+    A slimy tube has penetrated {0}'s throat.
+  </Arachnoids_EggingBeginsMessage>
+
+</LanguageData>

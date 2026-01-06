@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- =========================================================
+       Arachnoid Spider
+       Stable version with WebShot restored
+  ============================================================ -->
+  <ThingDef ParentName="AnimalThingBase">
+    <defName>Arachnoid_Spiderling</defName>
+    <label>arachnoid spiderling</label>
+    <description>A small arachnoid that which defends its nest. Its weak and cannot use webs, relying on numbers to win any fight</description>
+
+    <!-- ===========================
+         Stats
+    ============================ -->
+    <statBases>
+      <MoveSpeed>6</MoveSpeed>
+      <ComfyTemperatureMin>-10</ComfyTemperatureMin>
+      <ComfyTemperatureMax>50</ComfyTemperatureMax>
+      <MarketValue>250</MarketValue>
+      <LeatherAmount>0</LeatherAmount>
+      <ArmorRating_Blunt>0.05</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.25</ArmorRating_Sharp>
+      <FilthRate>1</FilthRate>
+      <Wildness>1.00</Wildness>
+    </statBases>
+
+    <!-- ===========================
+         Biological Properties
+    ============================ -->
+    <race>
+      <thinkTreeMain>ThinkTree_ArachnoidSpiderling</thinkTreeMain>
+      <thinkTreeConstant>AnimalConstant</thinkTreeConstant>
+      <body>ArachnoidBody</body>
+      <baseHungerRate>0.35</baseHungerRate>
+      <baseBodySize>0.4</baseBodySize>
+      <baseHealthScale>1.0</baseHealthScale>
+      <meatLabel>insect meat</meatLabel>
+      <lifeExpectancy>2</lifeExpectancy>
+      <trainability>None</trainability>
+      <lifeStageAges>
+        <li>
+          <def>EusocialInsectLarva</def>
+          <minAge>0</minAge>
+        </li>
+        <li>
+          <def>EusocialInsectJuvenile</def>
+          <minAge>0.03</minAge>
+        </li>
+        <li>
+          <def>EusocialInsectAdult</def>
+          <minAge>0.1</minAge>
+          <soundWounded>Pawn_Megascarab_Wounded</soundWounded>
+          <soundDeath>Pawn_Megascarab_Death</soundDeath>
+          <soundCall>Pawn_Megascarab_Call</soundCall>
+          <soundAngry>Pawn_Megascarab_Angry</soundAngry>
+        </li>
+      </lifeStageAges>
+      <!-- Sounds -->
+      <soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+    </race>
+
+    <!-- ===========================
+         Melee Attack Tools
+    ============================ -->
+    <tools>
+      <!-- Bite (main attack) -->
+      <li>
+        <label>fangs</label>
+        <capacities>
+          <li>Bite</li>
+        </capacities>
+        <power>4</power>
+        <cooldownTime>2.0</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+      </li>
+
+      <!-- Pedipalp bash -->
+      <li>
+        <label>pedipalp bash</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>2</power>
+        <cooldownTime>1.7</cooldownTime>
+      </li>
+
+      <!-- Leg strike -->
+      <li>
+        <label>leg strike</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>2</power>
+        <cooldownTime>1.1</cooldownTime>
+      </li>
+    </tools>
+
+    <!-- ===========================
+         Ability: WebShot
+         (grants silk-firing ranged attack)
+    ============================ -->
+    <comps>
+      <li Class="Arachnoids.CompProperties_ArachnoidHome">
+        <defaultRadius>20</defaultRadius>
+      </li>
+      <li Class="VEF.AnimalBehaviours.CompProperties_FixedGender">
+		    <gender>Female</gender>
+	  </li>
+    </comps>
+
+    <!-- ===========================
+         Graphics
+    ============================ -->
+    <graphicData>
+      <texPath>Things/Pawn/Arachnoids/Arachnoid_Spider</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>0.6</drawSize>
+      <shadowData>
+        <volume>(0.25, 0.15, 0.25)</volume>
+      </shadowData>
+    </graphicData>
+
+  </ThingDef>
+
+  <!-- ===========================
+       PawnKind Definition
+  ============================ -->
+  <PawnKindDef ParentName="InsectKindBase">
+    <defName>Arachnoid_Spiderling</defName>
+    <label>arachnoid spiderling</label>
+    <race>Arachnoid_Spiderling</race>
+    <combatPower>50</combatPower>
+    <ecoSystemWeight>0.05</ecoSystemWeight>
+    <canArriveManhunter>false</canArriveManhunter>
+
+    
+
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Arachnoids/Arachnoid_Spider</texPath>
+          <drawSize>0.25</drawSize>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Arachnoids/Arachnoid_Spider</texPath>
+          <drawSize>0.25</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Arachnoids/Arachnoid_Spider</texPath>
+          <drawSize>0.5</drawSize>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Arachnoids/Arachnoid_Spider</texPath>
+          <drawSize>0.5</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Arachnoids/Arachnoid_Spider</texPath>
+          <drawSize>1</drawSize>
+          <shadowData>
+            <volume>(0.25, 0.35, 0.23)</volume>
+            <offset>(0,0,-0.1)</offset>
+          </shadowData>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Arachnoids/Arachnoid_Spider</texPath>
+          <drawSize>0.75</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+</Defs>

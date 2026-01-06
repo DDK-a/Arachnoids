@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  
+  <DamageDef>
+    <defName>Arachnoid_Web</defName>
+    <label>web</label>
+    <workerClass>DamageWorker_AddInjury</workerClass>
+    <externalViolence>true</externalViolence>
+		<deathMessage>{0} has been wrapped to death.</deathMessage>
+    <hediff>Crack</hediff>     <!-- Try to find a way to get rid of this line without breaking everything -->
+
+    <!-- IMPORTANT: no health damage; we just deliver the hediff -->
+    <harmsHealth>false</harmsHealth>
+    <makesBlood>false</makesBlood>
+    <!-- Apply Webbed per point of ‘damage’ dealt by the projectile. -->
+    <additionalHediffs>
+      <li>
+        <hediff>Webbed</hediff>
+        <!-- 0.25 severity per hit when projectile damageAmountBase = 1 -->
+        <severityPerDamageDealt>0.25</severityPerDamageDealt>
+      </li>
+    </additionalHediffs>
+  </DamageDef>
+</Defs>
