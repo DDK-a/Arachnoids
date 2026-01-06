@@ -2,6 +2,9 @@ TLDR:
 Spiders only function if spawned in by the incident
 Use dev mode to gain some control over the spiders behavior
 There are a set of conditions for a spider to "hunt" one of your pawns. If its not happening, it may be a feature, not a bug. You can find the condition list below.
+The mod is not (yet) CE combatible
+
+⸻
 
 
 1. Spider Spawning
@@ -34,14 +37,12 @@ Spawn location rules
 
 Spiders do not constantly hunt.
 
-When a spider will start a hunt
-
 A hunt can only begin if:
 	•	The spider is healthy enough
-	•	Its hunt cooldown (2 days by default) has expired
+	•	Its hunt cooldown (2 days) has expired
 	•	It is in Defend mode
 	•	A humanlike pawn is:
-	•	Within hunt range of the home spot (90 tiles by default)
+	•	Within hunt range of the home spot (90 tiles by default, can be changed via mod settings)
 	•	Somewhat isolated (<3 allies within 15 tiles of it)
 	•	Not too close to the colony (30 tiles from any turret and 20 from any door)
 
@@ -80,7 +81,7 @@ A Spider will also attempt to cocoon any pawn which is:
 The cocoon has two visual stages:
 
 Stage 1 – Initial Cocooning
-	•	Cocooned hediff severity < 1.0
+	•	Cocooned hediff severity < 1.0 (Severity progress can only be seen with Debug Hediff Tooltips)
 	•	The pawn is restrained, and kept alive
 	•	No egging yet
 
@@ -101,10 +102,11 @@ While cocooned:
 Egging:
 	•	The eggs will be added to the cocooned pawn every 6 hours after the second stage begins 
 	•	They do not spawn the main spider, but spiderlings, a separate kind of enemy
-  Spiderlings:
-	•	Do not leave the nest
-	•	Cannot use web
-	•	Are very tiny, it may be hard to see them without the Camera+ mod
+	•	The eggs stop spawning spiderlings if the main spider dies
+    Spiderlings:
+	   •	Do not leave the nest area
+	   •	Cannot use web
+	   •	Are very tiny, it may be hard to see them without the Camera+ mod
 
 
 
